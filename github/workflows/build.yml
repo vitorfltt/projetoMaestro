@@ -13,8 +13,26 @@ jobs:
       image: docker.io/cypress/browsers
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Join parts of the large file
+        run: |
+          python join_parts.py
+
+      - name: Verify the reconstructed file
+        run: |
+          ls -lh app-casa_reconstructed.apk
+          file app-casa_reconstructed.apk
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -24,4 +42,7 @@ jobs:
       - uses: mobile-dev-inc/action-maestro-cloud@v1.1.0
         with:
           api-key: c5217c67-18c6-4252-a787-cddeed9adfa9
-          app-file: app-casa-atualizado-ids.apk
+          app-file: app-casa_reconstructed.apk
+
+
+
