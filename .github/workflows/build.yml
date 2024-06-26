@@ -42,7 +42,7 @@ jobs:
       - uses: mobile-dev-inc/action-maestro-cloud@v1.1.0
         with:
           api-key: c5217c67-18c6-4252-a787-cddeed9adfa9
-          app-file: app-casa_reconstructed.apk
+          app-file: /__w/projetoMaestro/projetoMaestro/app-casa_reconstructed.apk
 
 
 
