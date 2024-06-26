@@ -1,0 +1,60 @@
+appId: com.casadosaber.digital
+---
+- runFlow: scenarioLogin.yaml
+- repeat:
+    while:
+      notVisible: Início
+    commands:
+      - back
+- tapOn: Início
+- tapOn: ASSISTIR
+- tapOn:
+    point: 30%,26%
+- repeat:
+    while:
+      notVisible: 
+        id: play-pause-button
+    commands:
+      - tapOn:
+          point: 30%,26%
+- tapOn:
+    id: play-pause-button
+- assertVisible:
+    id: backward-video-button
+- tapOn:
+    id: backward-video-button
+- assertVisible:
+    id: forward-video-button
+- tapOn:
+    id: forward-video-button
+- assertVisible: Velocidade (1x)
+- tapOn:
+    id: speed-button
+- tapOn:
+    id: speed-option-2
+- assertVisible: Velocidade (2x)
+- assertVisible: Qualidade (1080p)
+- runFlow:
+    when:
+      visible: 
+        id: resolution-button
+    commands:
+      - tapOn:
+          id: resolution-button
+      - tapOn: "1080p (HD)"
+      - assertVisible: Reproduzindo mídia online utilizando Wi-Fi
+      - tapOn: Fechar
+- tapOn:
+    point: 30%,26%
+- assertVisible: Qualidade (1080p)
+- repeat:
+    while:
+      visible: 
+        id: next-button
+    commands:
+      - tapOn:
+            id: "next-button"
+- tapOn:
+    id: close-button
+- assertVisible: Baixar
+

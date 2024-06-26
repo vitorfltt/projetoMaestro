@@ -1,0 +1,92 @@
+appId: com.casadosaber.digital
+---
+- runFlow: scenarioLogin.yaml
+- repeat:
+    while:
+      notVisible: Categorias
+    commands:
+      - back
+- assertVisible: Categorias
+- tapOn: Categorias
+- assertVisible: MINHA LISTA
+- tapOn: MINHA LISTA
+- runFlow:
+    when:
+      notVisible: 0 cursos
+    commands:
+      - tapOn:
+          point: 36%,33%
+- assertVisible: Remover da lista
+- back
+- back
+- assertVisible: MEUS DOWNLOADS
+- tapOn: MEUS DOWNLOADS
+- assertVisible: Nenhum curso foi baixado até o momento.
+- back
+- assertVisible:
+    text: +PSICANÁLISE
+    index: 0
+- assertVisible: CONTINUAR ASSISTINDO
+- assertVisible: PROFESSORES
+- tapOn: PROFESSORES
+- assertVisible: Professores
+- tapOn:
+    point: 72%,45%
+- repeat:
+    while:
+      notVisible: Cursos
+    commands:
+      - scroll
+- tapOn:
+    point: 21%,78%
+- back
+- back
+- scroll
+- tapOn:
+    point: 28%,79%
+- scroll
+- repeat:
+    while:
+      notVisible: Cursos
+    commands:
+      - scroll
+- tapOn:
+    point: 21%,96%
+- back
+- back
+- assertVisible: Busque pelo nome
+- tapOn: Busque pelo nome
+- inputText: rena
+- hideKeyboard
+- tapOn:
+    point: "28%,42%"
+- scroll
+- repeat:
+    while:
+      notVisible: Cursos
+    commands:
+      - scroll
+- tapOn:
+    point: 21%,78%
+- back
+- back
+- tapOn: Busque pelo nome
+- inputText: wsl
+- hideKeyboard
+- assertVisible: Não foi possível encontrar o que você está procurando.
+- back
+- tapOn: Gestão e negócios
+- tapOn:
+    point: 50%,44%
+- back
+- back
+- tapOn: Psicologia e Psicanálise
+- tapOn:
+    point: 50%,44%
+- back
+- back
+- tapOn: História
+- tapOn:
+    point: 50%,44%
+- back
+- back

@@ -1,0 +1,98 @@
+appId: com.casadosaber.digital
+---
+- runFlow: scenarioLogin.yaml
+# acessando no menu a tela de categorias
+- repeat:
+    while:
+      notVisible: Categorias
+    commands:
+      - back
+- assertVisible: Categorias
+- tapOn: Categorias
+# acessar e validar a categoria de downloads
+- assertVisible: MEUS DOWNLOADS
+- tapOn: MEUS DOWNLOADS
+- assertVisible: Nenhum curso foi baixado até o momento.
+# acessar o curso para validar o download na tela de curso
+- repeat:
+    while:
+      notVisible: Início
+    commands:
+      - back
+- tapOn: Início
+- tapOn:
+    point: 50%,40%
+- assertVisible:
+    id: play-button
+- tapOn:
+    text: "Adicionar à lista"
+    retryTapIfNoChange: false
+- tapOn:
+    text: "Remover da lista"
+    retryTapIfNoChange: false
+- runFlow:
+    when:
+      visible: ESTÁ GOSTANDO DO APLICATIVO?
+    commands:
+      - tapOn: 
+- repeat:
+    while:
+      notVisible:
+        id: class-list-item-1
+    commands:
+      - scroll
+# baixando uma aula
+- tapOn:
+    text: 
+    index: 1
+- scrollUntilVisible:
+    element: Baixando
+    direction: UP
+- extendedWaitUntil:
+    visible: Download de aula concluído
+    timeout: 50000
+- scrollUntilVisible:
+    element: Baixado
+    direction: UP
+- assertVisible: Baixado
+# entrar e validar a tela de um curso baixado vindo da tela do curso "meus downloads/curso baixado"
+- tapOn:
+    text: baixado
+    retryTapIfNoChange: false
+- assertVisible: mais detalhes
+- assertVisible: excluir
+- runFlow:
+    when:
+      visible: MATERIAL DE APOIO
+    commands:
+      - tapOn: MATERIAL DE APOIO
+      - assertVisible: COMPARTILHAR
+      - assertVisible: BAIXAR
+      - back
+#  validar que a aula baixada tem a tag de não estar consumindo dados
+- tapOn: 
+- repeat:
+    while:
+      notVisible: Sem consumo de dados
+    commands:
+      - tapOn:
+          point: 30%,26%
+- assertVisible: Sem consumo de dados
+- back
+#  voltando para tela de categorias
+- repeat:
+    while:
+      notVisible: Categorias
+    commands:
+      - back
+# acessando a categorias de downloads
+- tapOn: Categorias
+- tapOn: MEUS DOWNLOADS
+- assertVisible: Meus downloads
+- assertNotVisible: Nenhum curso foi baixado até o momento.
+# acessando o curso baixado
+- tapOn:
+    point: 50%,27%
+# excluindo curso baixado
+- tapOn: excluir
+- assertVisible: Curso removido com sucesso

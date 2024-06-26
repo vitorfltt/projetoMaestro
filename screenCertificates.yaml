@@ -1,0 +1,62 @@
+appId: com.casadosaber.digital
+---
+- runFlow: scenarioLogin.yaml
+- repeat:
+    while:
+      notVisible: Certificados
+    commands:
+      - back
+- assertVisible: Certificados
+- tapOn: Certificados
+- assertVisible: Meus certificados
+- tapOn: Baixar
+- runFlow:
+    when:
+      visible: ESTÁ GOSTANDO DO APLICATIVO?
+    commands:
+      - tapOn: 
+- runFlow:
+    when:
+      visible: Seu certificado foi salvo na sua galeria de fotos.
+    commands:
+      - assertVisible: Seu certificado foi salvo na sua galeria de fotos.
+- runFlow:
+    when:
+      notVisible: Seu certificado foi salvo na sua galeria de fotos.
+    commands:
+      - tapOn: Baixar
+      - assertVisible: Seu certificado foi salvo na sua galeria de fotos.
+- tapOn: Compartilhar
+- assertVisible:
+    id: android:id/resolver_list
+- back
+- repeat:
+    while:
+      notVisible: Que tal concluir estes cursos?
+    commands:
+      - scroll
+- assertVisible: Minha conta
+- tapOn:
+    point: 64%,16%
+- assertVisible: ASSISTIR NOVAMENTE
+- assertVisible:
+    id: "certificate-button"
+- tapOn:
+    id: certificate-button
+- assertVisible: Certificado de conclusão
+- tapOn: Baixar
+- assertVisible: Seu certificado foi salvo na sua galeria de fotos.
+- tapOn:
+    id: certificate-button
+- tapOn: Compartilhar
+- assertVisible:
+    id: android:id/resolver_list
+- back
+- repeat:
+    while:
+      notVisible:
+        id: "class-finished-1"
+    commands:
+      - scroll
+- assertVisible:
+    id: "class-finished-1"

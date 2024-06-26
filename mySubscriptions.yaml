@@ -1,0 +1,212 @@
+appId: com.casadosaber.digital
+---
+# plano anual
+- runFlow:
+    when:
+      visible: ENTRAR
+    file: scenarioLogin.yaml
+- repeat:
+    while:
+      notVisible: Início
+    commands:
+      - back
+- tapOn: Minha conta
+- scroll
+- assertVisible: Minhas assinaturas
+- assertVisible: PLANO ANUAL
+- assertVisible: "Próxima cobrança:"
+- assertVisible: 14/05/2025
+- tapOn: "Próxima cobrança:"
+- tapOn: Renovação automática
+- assertVisible: Sua assinatura é renovada automaticamente após o vencimento.
+- assertVisible: Você pode cancelar a renovação automática, no entanto, perderá o
+    acesso à plataforma quando a assinatura expirar.
+- assertVisible: EU ENTENDI
+- tapOn: EU ENTENDI
+- assertVisible: Discover **** 5331
+- assertVisible: Em 1x de R$ 478,80
+- assertVisible: CANCELAR RENOVAÇÃO
+- tapOn: CANCELAR RENOVAÇÃO
+- assertVisible: ondemand.casadosaber.tec.br/entrar
+- back
+- assertVisible: Minhas assinaturas
+- assertVisible: curtelerdi@tozya.com
+- assertVisible: PLANO ANUAL
+- scroll
+- assertVisible: SAIR DA MINHA CONTA
+- tapOn: SAIR DA MINHA CONTA
+# plano bienal
+- tapOn: "ENTRAR"
+- tapOn: E-mail
+- inputText: yagnilekka@tozya.com
+- tapOn: ENTRAR COM SENHA
+- tapOn: Senha
+- inputText: casa123
+- tapOn: ENTRAR
+- tapOn: Minha conta
+- scroll
+- assertVisible: Minhas assinaturas
+- assertVisible: PLANO BIENAL
+- assertVisible: "Próxima cobrança:"
+- assertVisible: 14/05/2026
+- tapOn: "Próxima cobrança:"
+- tapOn: Renovação automática
+- assertVisible: Sua assinatura é renovada automaticamente após o vencimento.
+- assertVisible: Você pode cancelar a renovação automática, no entanto, perderá o
+    acesso à plataforma quando a assinatura expirar.
+- assertVisible: EU ENTENDI
+- tapOn: EU ENTENDI
+- assertVisible: Discover **** 5331
+- assertVisible: Em 1x de R$ 790,80
+- assertVisible: CANCELAR RENOVAÇÃO
+- tapOn: CANCELAR RENOVAÇÃO
+- assertVisible: ondemand.casadosaber.tec.br/entrar
+- back
+- assertVisible: Minhas assinaturas
+- assertVisible: PLANO BIENAL
+- assertVisible: yagnilekka@tozya.com
+- scroll
+- assertVisible: SAIR DA MINHA CONTA
+- tapOn: SAIR DA MINHA CONTA
+# plano presente 1 ano
+- tapOn: ENTRAR
+- tapOn: E-mail
+- inputText: veydivulte@tozya.com
+- tapOn: ENTRAR COM SENHA
+- tapOn: Senha
+- inputText: casa123
+- tapOn: ENTRAR
+- tapOn: Minha conta
+- scroll
+- assertVisible: Minhas assinaturas
+- assertVisible: PLANO PRESENTE 1 ANO
+- assertVisible: "Validade da assinatura:"
+- assertVisible: 16/05/2025
+- assertNotVisible: "Próxima cobrança:"
+- assertNotVisible: Renovação automática
+- assertNotVisible: CANCELAR RENOVAÇÃO
+- scroll
+- assertVisible: SAIR DA MINHA CONTA
+- tapOn: SAIR DA MINHA CONTA
+# plano presente 2 anos
+- tapOn: ENTRAR
+- tapOn: E-mail
+- inputText: taydeyerti@tozya.com
+- tapOn: ENTRAR COM SENHA
+- tapOn: Senha
+- inputText: casa123
+- tapOn: ENTRAR
+- tapOn: Minha conta
+- scroll
+- assertVisible: Minhas assinaturas
+- assertVisible: PLANO PRESENTE 2 ANOS
+- assertVisible: "Validade da assinatura:"
+- assertVisible: 16/05/2026
+- assertNotVisible: "Próxima cobrança:"
+- assertNotVisible: Renovação automática
+- assertNotVisible: CANCELAR RENOVAÇÃO
+- scroll
+- assertVisible: SAIR DA MINHA CONTA
+- tapOn: SAIR DA MINHA CONTA
+# plano mensal
+- tapOn: ENTRAR
+- tapOn: E-mail
+- inputText: gemlakordo@tozya.com
+- tapOn: ENTRAR COM SENHA
+- tapOn: Senha
+- inputText: casa123
+- tapOn: ENTRAR
+- tapOn: Minha conta
+- scroll
+- assertVisible: Minhas assinaturas
+- assertVisible: PLANO MENSAL
+- assertVisible: "Próxima cobrança:"
+- tapOn: "Próxima cobrança:"
+- assertVisible: Renovação automática
+- tapOn: Renovação automática
+- assertVisible: Sua assinatura é renovada automaticamente após o vencimento.
+- assertVisible: Você pode cancelar a renovação automática, no entanto, perderá o
+    acesso à plataforma quando a assinatura expirar.
+- tapOn: EU ENTENDI
+- assertVisible: Discover **** 5331
+- assertVisible: R$ 89,90 por mês
+- assertVisible: CANCELAR RENOVAÇÃO
+- tapOn: CANCELAR RENOVAÇÃO
+- assertVisible: ondemand.casadosaber.tec.br/entrar
+- back
+- assertVisible: gemlakordo@tozya.com
+- assertVisible: Minhas assinaturas
+- assertVisible: PLANO MENSAL
+- scroll
+- assertVisible: SAIR DA MINHA CONTA
+- tapOn: SAIR DA MINHA CONTA
+# plano vivo
+- tapOn: ENTRAR
+- tapOn: E-mail
+- inputText: firkuderti@tozya.com
+- tapOn: ENTRAR COM SENHA
+- tapOn: Senha
+- inputText: casa123
+- tapOn: ENTRAR
+- tapOn: Minha conta
+- scroll
+- assertVisible: Minhas assinaturas
+- assertVisible: PLANO VIVO
+- assertNotVisible: "Próxima cobrança:"
+- assertNotVisible: Renovação automática
+- assertNotVisible: CANCELAR RENOVAÇÃO
+- scroll
+- assertVisible: SAIR DA MINHA CONTA
+- tapOn: SAIR DA MINHA CONTA
+# plano PSI não assinantes
+- tapOn: ENTRAR
+- tapOn: E-mail
+- inputText: codromepsi@tozya.com
+- tapOn: ENTRAR COM SENHA
+- tapOn: Senha
+- inputText: casa123
+- tapOn: ENTRAR
+- tapOn: Minha conta
+- scroll
+- assertVisible: Minhas assinaturas
+- assertVisible: +PSICANÁLISE E CASA DO SABER ANUAL
+- assertVisible: "Próxima cobrança:"
+- assertVisible: 24/05/2025
+- tapOn: "Próxima cobrança:"
+- assertVisible: Renovação automática
+- tapOn: Renovação automática
+- assertVisible: Sua assinatura é renovada automaticamente após o vencimento.
+- assertVisible: Você pode cancelar a renovação automática, no entanto, perderá o
+    acesso à plataforma quando a assinatura expirar.
+- tapOn: EU ENTENDI
+- assertVisible: Master **** 7780
+- assertVisible: Em 1x de R$ 478,80
+- assertVisible: CANCELAR RENOVAÇÃO
+- tapOn: CANCELAR RENOVAÇÃO
+- assertVisible: ondemand.casadosaber.tec.br/entrar
+- back
+- assertVisible: codromepsi@tozya.com
+- assertVisible: Minhas assinaturas
+- assertVisible: +PSICANÁLISE E CASA DO SABER ANUAL
+- scroll
+- assertVisible: SAIR DA MINHA CONTA
+- tapOn: SAIR DA MINHA CONTA
+# plano PSI assinantes
+- tapOn: ENTRAR
+- tapOn: E-mail
+- inputText: larkajuyda@tozya.com
+- tapOn: ENTRAR COM SENHA
+- tapOn: Senha
+- inputText: casa123
+- tapOn: ENTRAR
+- tapOn: Minha conta
+- scroll
+- assertVisible: Minhas assinaturas
+- assertVisible: +PSICANÁLISE
+- assertVisible: "Validade da assinatura:"
+- assertVisible: 24/05/2025
+- assertNotVisible: Renovação automática
+- assertNotVisible: CANCELAR RENOVAÇÃO
+- scroll
+- assertVisible: SAIR DA MINHA CONTA
+- tapOn: SAIR DA MINHA CONTA

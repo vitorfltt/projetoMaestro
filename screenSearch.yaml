@@ -1,0 +1,64 @@
+appId: com.casadosaber.digital
+---
+# - runFlow: scenarioLogin.yaml
+- tapOn:
+    point: 93%,7%
+- assertVisible: Escolhas para você
+- assertVisible: Descobrir professores
+- tapOn: Busque cursos e professores
+- inputText: amor
+- hideKeyboard
+- assertVisible: .*cursos encontrados.*
+- assertVisible: Resultados para a busca "amor"
+- repeat:
+    times: 3
+    commands:
+      - scroll
+- eraseText: 50
+- inputText: julia
+- hideKeyboard
+- assertVisible: Resultados para a busca "julia"
+- assertVisible: .*cursos encontrados.*
+- scroll
+- assertVisible: Resultados para a busca "julia"
+- assertVisible: .*professores encontrados.*
+- tapOn: Busque cursos e professores
+- eraseText: 10
+- assertVisible: Escolhas para você
+- assertVisible: Descobrir professores
+- inputText: wsl
+- hideKeyboard
+- assertVisible: Não foi possível encontrar o que você está procurando.
+- eraseText: 50
+- assertVisible: Descobrir professores
+- assertVisible: Escolhas para você
+- inputText: tempo
+- hideKeyboard
+- assertVisible: Resultados para a busca "tempo"
+- assertVisible: .*cursos encontrados.*
+- repeat:
+    while:
+      notVisible: .*categorias encontrados.*
+    commands:
+      - scroll
+- scroll
+- assertVisible: "Filosofia: Filosofia Contemporânea"
+- tapOn: Busque cursos e professores
+- eraseText: 50
+- inputText: psico
+- hideKeyboard
+- assertVisible: Resultados para a busca "psico"
+- assertVisible: .*cursos encontrados.*
+- repeat:
+    while:
+      notVisible: .*categorias encontrados.*
+    commands:
+      - scroll
+- scroll
+- assertVisible: Psicologia
+- tapOn: Busque cursos e professores
+- eraseText: 50
+- inputText: lucas
+- hideKeyboard
+- assertVisible: .*cursos encontrados.*
+- assertVisible: .*professores encontrados.*

@@ -1,0 +1,81 @@
+appId: com.casadosaber.digital
+---
+# - runFlow: scenarioLogin.yaml
+- repeat:
+    while:
+      notVisible: Início
+    commands:
+      - back
+- tapOn: Minha conta
+- assertVisible: "Programa de Indicações "
+- tapOn: INDIQUE AGORA
+- assertVisible: CONFIRMAR
+- back
+- assertVisible:
+    text: Minha conta
+    index: 0
+- tapOn: ALTERAR
+- assertVisible: Digite sua nova senha duas vezes para fazer a confirmação.
+- tapOn:
+    text: ALTERAR SENHA
+    index: 1
+- assertVisible: newPassword is a required field
+- assertVisible: newPasswordConfirmation is a required field
+- tapOn: Nova senha
+- inputText: c
+- assertVisible: newPassword must be at least 6 characters
+- tapOn: Confirme sua nova senha
+- inputText: c
+- assertVisible: Deve conter no mínimo 6 caractéres
+- hideKeyboard
+- eraseText: 20
+- assertVisible: As senhas não coincidem. Digite novamente.
+- tapOn: Nova senha
+- inputText: asa1234
+- tapOn: Confirme sua nova senha
+- inputText: casa123
+- assertVisible: As senhas não coincidem. Digite novamente.
+- inputText: 4
+- assertNotVisible: As senhas não coincidem. Digite novamente.
+- tapOn: Mostrar/ocultar senha
+- assertVisible: casa1234
+- tapOn: Mostrar/ocultar senha
+- assertVisible:
+    text: ••••••••
+    index: 0
+- tapOn:
+    point: 82%,54%
+- assertVisible: casa1234
+- tapOn:
+    point: 82%,54%
+- assertVisible:
+    text: ••••••••
+    index: 1
+- hideKeyboard
+- tapOn:
+    text: ALTERAR SENHA
+    index: 1
+- assertVisible: Sua senha foi atualizada
+- assertVisible: Agora você pode usar a nova senha ao acessar sua conta.
+- scroll
+- assertVisible: Meu cadastro
+- tapOn: 
+    text: ALTERAR 
+    index: 1
+- assertVisible: Alterar cadastro
+- tapOn:
+    point: 45%,47%
+- eraseText: 20
+- tapOn: SALVAR
+- assertVisible: phoneNumber is a required field
+- inputText: 14999999999
+- tapOn: SALVAR
+- assertVisible: Seu cadastro foi atualizado
+- scroll
+- assertVisible: Enviar certificados por e-mail ao concluir um curso.
+- tapOn: "0"
+- tapOn: "1"
+- scroll
+- assertVisible: SAIR DA MINHA CONTA
+- tapOn: SAIR DA MINHA CONTA
+- assertVisible: ENTRAR

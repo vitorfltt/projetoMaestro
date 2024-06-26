@@ -1,0 +1,56 @@
+appId: com.casadosaber.digital
+env:
+    USERNAME: curtelerdi@tozya.com
+    PASSWORD: casa1234
+---
+- clearState
+- launchApp
+- runFlow:
+    when:
+      visible:
+        id: "com.android.permissioncontroller:id/permission_allow_button"
+    commands:
+        - tapOn: 
+            id: "com.android.permissioncontroller:id/permission_allow_button"
+- tapOn:
+    id: main-screen-login-button
+- assertVisible: "E-mail"
+- tapOn: "ENTRAR COM SENHA"
+- assertVisible: "É necessário informar o seu e-mail"
+- tapOn:
+    text: E-mail
+- inputText: vitor
+- assertVisible: "Insira um e-mail válido"
+- eraseText: 50
+- inputText: vitor@erro.com
+- tapOn: "ENTRAR COM SENHA"
+- assertVisible: "Email não encontrado"
+- assertVisible: "Verifique se está correto e tente novamente. Caso não possua uma conta, faça a sua assinatura."
+- eraseText: 50
+- inputText: ${USERNAME}
+- hideKeyboard
+- tapOn: "ENTRAR COM SENHA"
+- assertVisible: "Senha"
+- tapOn: "Senha"
+- tapOn: "ENTRAR"
+- assertVisible: "password is a required field"
+- inputText: casa
+- tapOn: "ENTRAR"
+- assertVisible: "Deve conter no mínimo 6 caractéres"
+- inputText: 123456
+- tapOn: "ENTRAR"
+- assertVisible: "Senha incorreta"
+- assertVisible: "Verifique se está correto e tente novamente. Caso não lembre, redefina a sua senha para recuperá-la."
+- eraseText: 20
+- inputText: ${PASSWORD}
+- tapOn: "ENTRAR"
+- runFlow:
+    when:
+      visible: "ENTENDI"
+    commands:
+        - tapOn: "ENTENDI"
+- assertVisible: "Minha conta"
+
+
+
+

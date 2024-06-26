@@ -1,0 +1,110 @@
+appId: com.casadosaber.digital
+---
+- runFlow: scenarioLogin.yaml
+# cenario espelhamento
+- tapOn:
+    point: 83%,7%
+- assertVisible: App para Smart TV
+- assertVisible: Conectar com QR Code
+# cenario lupa pesquisar
+- tapOn:
+    point: 92%,7%
+- tapOn:
+    point: 93%,7%
+- assertVisible: Descobrir professores
+- runFlow:
+    when:
+      visible: "Escolhas para você"
+    commands:
+        - assertVisible: "Escolhas para você"
+- tapOn: Busque cursos e professores
+- inputText: renato
+- hideKeyboard
+- assertVisible: Resultados para a busca "renato"
+- repeat:
+    while:
+      notVisible: "RENATO NOGUERA"
+    commands:
+      - scroll
+- assertNotVisible:
+    text: "Certificados"
+- assertNotVisible:
+    text: "Minha conta"
+- eraseText: 15
+- assertVisible: Descobrir professores
+- runFlow:
+    when:
+      visible: "Escolhas para você"
+    commands:
+        - assertVisible: "Escolhas para você"
+- tapOn: Busque cursos e professores
+- inputText: cde
+- hideKeyboard
+- assertVisible: "Não foi possível encontrar o que você está procurando."
+- tapOn:     
+    point: 6%,7%
+# Destaque home 
+- tapOn:
+    point: 50%,40%
+- assertVisible: Compartilhar
+- tapOn:
+    point: 6%,6%
+# Botão assistir
+- tapOn: ASSISTIR
+- back
+- assertVisible: Compartilhar
+- tapOn:
+    point: 6%,6%
+# Opção minha lista
+- assertVisible: MINHA LISTA
+- tapOn: MINHA LISTA
+- runFlow:
+    when:
+      visible: "ESTÁ GOSTANDO DO APLICATIVO?"
+    commands:
+        - tapOn: ""
+- assertVisible: Curso adicionado à lista.
+- tapOn: MINHA LISTA
+- assertVisible: Curso removido da lista.
+# Clique cursos
+- repeat:
+    times: 5
+    commands:
+        - scroll
+        - longPressOn:
+            point: 26%,48%
+        - runFlow:
+            when:
+                notVisible: Mais detalhes
+            commands:
+            - longPressOn:
+                point: 21%,67%
+        - tapOn: Mais detalhes
+        - assertVisible: Compartilhar
+        - back
+        - tapOn:
+            text: 
+            index: 0
+# Visualizar fim da página
+- repeat:
+    while:
+      notVisible: "Professores"
+    commands:
+      - scroll
+# Existencia do Menu na home
+- assertVisible: Início
+- assertVisible: Certificados
+- assertVisible: Cursos
+- assertVisible: Minha conta
+
+
+
+
+
+
+
+
+
+
+
+

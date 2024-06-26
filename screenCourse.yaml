@@ -1,0 +1,137 @@
+appId: com.casadosaber.digital
+jsEngine: graaljs
+---
+- runFlow: scenarioLogin.yaml
+- tapOn:
+    point: 50%,40%
+- tapOn:
+    id: play-button
+- back
+- tapOn: Adicionar à lista
+- runFlow:
+    when:
+      visible: ESTÁ GOSTANDO DO APLICATIVO?
+    commands:
+      - tapOn: 
+- extendedWaitUntil:
+    visible: "Curso adicionado à lista."
+    timeout: 10000 
+- tapOn:
+    text: "Remover da lista"
+    retryTapIfNoChange: false
+- extendedWaitUntil:
+    visible: "Curso removido da lista."
+- tapOn: Compartilhar
+- assertNotVisible: Compartilhar
+- assertVisible:
+    id: android:id/chooser_copy_button
+- back
+- tapOn:
+    text: "Baixar"
+    retryTapIfNoChange: false
+- assertVisible: Baixando
+- tapOn:
+    text: "Baixando"
+    retryTapIfNoChange: false
+- assertVisible: Deseja cancelar o download?
+- tapOn: CONTINUAR DOWNLOAD
+- assertVisible: Baixando
+- tapOn: Baixando
+- tapOn: CANCELAR DOWNLOAD
+- assertVisible: O download do curso foi cancelado.
+- assertVisible: 
+- assertVisible: Baixar
+- runFlow:
+    when:
+      visible: Trailer
+    commands:
+      - tapOn: Trailer
+      - back
+- scroll
+- runFlow:
+    when:
+      visible: MATERIAL DE APOIO
+    commands:
+      - tapOn: MATERIAL DE APOIO
+      - assertVisible: COMPARTILHAR
+      - back
+- runFlow:
+    when:
+      visible: CERTIFICADO INDISPONÍVEL
+    commands:
+      - tapOn: CERTIFICADO INDISPONÍVEL
+      - assertVisible: Certificado\nindisponível
+      - tapOn: EU ENTENDI
+- runFlow:
+    when:
+      visible: "O que você vai aprender"
+    commands:
+        - tapOn: "O que você vai aprender"
+        - tapOn: O que você vai aprender
+- tapOn: Professor(a)
+- scroll
+- repeat:
+    while:
+      notVisible: Mais informações
+    commands:
+      - scroll
+- tapOn: Mais informações
+- repeat:
+    while:
+      notVisible: Cursos
+    commands:
+      - scroll
+- assertVisible: Cursos
+- back
+- scrollUntilVisible:
+    element: Professor(a)
+    direction: UP
+- tapOn: Professor(a)
+- scroll
+- tapOn:
+    text: 
+    index: 0
+- runFlow:
+    when:
+      visible: ESTÁ GOSTANDO DO APLICATIVO?
+    commands:
+      - tapOn: 
+- runFlow:
+    when:
+      visible: ESTÁ GOSTANDO DO APLICATIVO?
+    commands:
+      - tapOn: 
+- extendedWaitUntil:
+    visible: "Download de aula concluído"
+    timeout: 50000
+- scrollUntilVisible:
+    element: Baixado
+    direction: UP
+- assertVisible: Baixado
+- tapOn: 
+    text: baixado
+    retryTapIfNoChange: false
+- assertVisible: excluir
+- tapOn: excluir
+- extendedWaitUntil:
+    visible: "Curso removido com sucesso"
+    timeout: 10000
+- assertVisible: Professor(a)
+- evalScript: ${output.counter = 0}
+- repeat:
+    while:
+      true: ${output.counter < 3}
+    commands:
+      - evalScript: ${output.counter++}
+      - runFlow:
+          when:
+            notVisible: 
+              id: "class-list-item-${output.counter}"
+          commands:
+            - scrollUntilVisible:
+                element: "Aula ${output.counter}"
+                direction: DOWN
+            - tapOn:
+                id: "class-list-item-${output.counter}"
+            - back
+
