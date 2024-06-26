@@ -10,7 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: docker.io/cypress/browsers
+      image: ubuntu:20.04
+
+    services:
+      docker:
+        image: docker:19.03.12
+        options: --privileged
+        ports:
+          - 5554:5554
+          - 5555:5555
 
     steps:
       - name: Checkout repository
@@ -33,11 +41,42 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-      
-      - uses: mobile-dev-inc/action-maestro-cloud@v1.1.0
-        with:
-          api-key: c5217c67-18c6-4252-a787-cddeed9adfa9
-          app-file: /__w/projetoMaestro/projetoMaestro/app-casa_reconstructed.apk
+
+      - name: Set up Android SDK
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-8-jdk wget unzip
+          wget "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip" -O commandlinetools.zip
+          mkdir -p $HOME/cmdline-tools
+          unzip commandlinetools.zip -d $HOME/cmdline-tools
+          mkdir -p $ANDROID_HOME/cmdline-tools/latest
+          mv $HOME/cmdline-tools/cmdline-tools/* $ANDROID_HOME/cmdline-tools/latest
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-29" "system-images;android-29;google_apis;x86_64" "emulator"
+
+      - name: Start Android Emulator
+        run: |
+          echo "no" | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n test -k "system-images;android-29;google_apis;x86_64"
+          $ANDROID_HOME/emulator/emulator -avd test -no-window -no-audio -no-boot-anim -gpu off -accel off &
+          adb wait-for-device
+          adb shell input keyevent 82
+
+      - name: Verify Android Emulator is running
+        run: |
+          adb devices
+
+      - name: Install APK on Emulator
+        run: |
+          adb install app-casa_reconstructed.apk
+
+      - name: Verify APK Installation
+        run: |
+          adb shell pm list packages | grep 'com.casadosaber.digital'
+
+      - name: Build and Test
+        run: |
+          maestro test --format=junit --output=report.xml --no-ansi .maestro
+
 
 
 
