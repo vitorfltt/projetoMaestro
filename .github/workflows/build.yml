@@ -29,11 +29,6 @@ jobs:
         run: |
           python join_parts.py
 
-      - name: Verify the reconstructed file
-        run: |
-          ls -lh app-casa_reconstructed.apk
-          file app-casa_reconstructed.apk
-
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
