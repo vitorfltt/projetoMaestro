@@ -62,6 +62,7 @@ appId: com.casadosaber.digital
     text: ALTERAR 
     index: 1
 - assertVisible: Alterar cadastro
+- eraseText: 20
 - tapOn:
     point: 45%,47%
 - eraseText: 20
