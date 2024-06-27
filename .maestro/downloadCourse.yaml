@@ -27,14 +27,14 @@ appId: com.casadosaber.digital
 - tapOn:
     text: "Adicionar à lista"
     retryTapIfNoChange: false
-- tapOn:
-    text: "Remover da lista"
-    retryTapIfNoChange: false
 - runFlow:
     when:
       visible: ESTÁ GOSTANDO DO APLICATIVO?
     commands:
       - tapOn: 
+- tapOn:
+    text: "Remover da lista"
+    retryTapIfNoChange: false
 - repeat:
     while:
       notVisible:

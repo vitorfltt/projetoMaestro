@@ -9,6 +9,8 @@ appId: com.casadosaber.digital
 - tapOn: Minha conta
 - assertVisible: "Programa de Indicações "
 - tapOn: INDIQUE AGORA
+- assertVisible: .*Accept*
+- tapOn: .*Accept*
 - assertVisible: CONFIRMAR
 - back
 - assertVisible:

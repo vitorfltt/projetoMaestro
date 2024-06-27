@@ -94,7 +94,7 @@ appId: com.casadosaber.digital
 # Existencia do Menu na home
 - assertVisible: Início
 - assertVisible: Certificados
-- assertVisible: Cursos
+- assertVisible: Categorias
 - assertVisible: Minha conta
 
 

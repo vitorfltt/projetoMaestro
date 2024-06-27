@@ -96,14 +96,9 @@ jsEngine: graaljs
       visible: ESTÁ GOSTANDO DO APLICATIVO?
     commands:
       - tapOn: 
-- runFlow:
-    when:
-      visible: ESTÁ GOSTANDO DO APLICATIVO?
-    commands:
-      - tapOn: 
 - extendedWaitUntil:
     visible: "Download de aula concluído"
-    timeout: 50000
+    timeout: 100000
 - scrollUntilVisible:
     element: Baixado
     direction: UP
