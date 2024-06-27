@@ -1,7 +1,7 @@
 appId: com.casadosaber.digital
 jsEngine: graaljs
 ---
-- runFlow: scenarioLogin.yaml
+- runFlow: subflows/login.yaml
 - tapOn:
     point: 50%,40%
 - tapOn:

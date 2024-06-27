@@ -1,6 +1,6 @@
 appId: com.casadosaber.digital
 ---
-- runFlow: scenarioLogin.yaml
+- runFlow: subflows/login.yaml
 - repeat:
     while:
       notVisible: Início

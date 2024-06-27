@@ -1,6 +1,6 @@
 appId: com.casadosaber.digital
 ---
-- runFlow: scenarioLogin.yaml
+- runFlow: subflows/login.yaml
 # acessando no menu a tela de categorias
 - repeat:
     while:

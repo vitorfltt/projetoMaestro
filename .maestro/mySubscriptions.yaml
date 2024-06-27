@@ -4,7 +4,7 @@ appId: com.casadosaber.digital
 - runFlow:
     when:
       visible: ENTRAR
-    file: scenarioLogin.yaml
+    file: subflows/login.yaml
 - repeat:
     while:
       notVisible: Início
