@@ -69,7 +69,11 @@ appId: com.casadosaber.digital
 - inputText: 14999999999
 - tapOn: SALVAR
 - assertVisible: Seu cadastro foi atualizado
-- scroll
+- repeat:
+    while:
+      notVisible: "Enviar certificados por e-mail ao concluir um curso."
+    commands:
+      - scroll
 - assertVisible: Enviar certificados por e-mail ao concluir um curso.
 - tapOn: "0"
 - tapOn: "1"
