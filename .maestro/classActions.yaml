@@ -34,16 +34,21 @@ appId: com.casadosaber.digital
     id: speed-option-2
 - assertVisible: Velocidade (2x)
 - assertVisible: Qualidade (1080p)
-- runFlow:
-    when:
-      visible: 
-        id: resolution-button
-    commands:
-      - tapOn:
-          id: resolution-button
-      - tapOn: "1080p (HD)"
-      - assertVisible: Reproduzindo mídia online utilizando Wi-Fi
-      - tapOn: Fechar
+# - runFlow:
+#     when:
+#       visible: 
+#         id: resolution-button
+#     commands:
+#       - tapOn:
+#           id: resolution-button
+#       - tapOn: "1080p (HD)"
+#       - assertVisible: Reproduzindo mídia online utilizando Wi-Fi
+#       - tapOn: Fechar
+- tapOn:
+    id: resolution-button
+- tapOn: "1080p (HD)"
+- assertVisible: Reproduzindo mídia online utilizando Wi-Fi
+- tapOn: Fechar
 - tapOn:
     point: 30%,26%
 - assertVisible: Qualidade (1080p)

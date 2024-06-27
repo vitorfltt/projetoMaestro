@@ -41,6 +41,7 @@ appId: com.casadosaber.digital
         id: class-list-item-1
     commands:
       - scroll
+      - scroll
 # baixando uma aula
 - tapOn:
     text: 
