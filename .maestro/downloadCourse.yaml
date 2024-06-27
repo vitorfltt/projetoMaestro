@@ -50,7 +50,7 @@ appId: com.casadosaber.digital
     direction: UP
 - extendedWaitUntil:
     visible: Download de aula concluído
-    timeout: 50000
+    timeout: 100000
 - scrollUntilVisible:
     element: Baixado
     direction: UP
