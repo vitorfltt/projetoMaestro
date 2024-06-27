@@ -1,6 +1,6 @@
 appId: com.casadosaber.digital
 ---
-- runFlow: scenarioLogin.yaml
+- runFlow: login.yaml
 - tapOn:
     point: 93%,7%
 - assertVisible: Escolhas para você

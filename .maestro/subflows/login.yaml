@@ -1,0 +1,32 @@
+appId: com.casadosaber.digital
+env:
+    USERNAME: curtelerdi@tozya.com
+    PASSWORD: casa1234
+---
+- clearState
+- launchApp
+- runFlow:
+    when:
+      visible:
+        id: "com.android.permissioncontroller:id/permission_allow_button"
+    commands:
+        - tapOn: 
+            id: "com.android.permissioncontroller:id/permission_allow_button"
+- tapOn:
+    id: main-screen-login-button
+- assertVisible: "E-mail"
+- tapOn:
+    text: E-mail
+- inputText: ${USERNAME}
+- hideKeyboard
+- tapOn: "ENTRAR COM SENHA"
+- assertVisible: "Senha"
+- tapOn: "Senha"
+- inputText: ${PASSWORD}
+- tapOn: "ENTRAR"
+- runFlow:
+    when:
+      visible: "ENTENDI"
+    commands:
+        - tapOn: "ENTENDI"
+- assertVisible: "Minha conta"
