@@ -62,10 +62,9 @@ appId: com.casadosaber.digital
     text: ALTERAR 
     index: 1
 - assertVisible: Alterar cadastro
-- eraseText: 20
 - tapOn:
     point: 45%,47%
-- eraseText: 20
+- eraseText: 50
 - tapOn: SALVAR
 - assertVisible: phoneNumber is a required field
 - inputText: 14999999999

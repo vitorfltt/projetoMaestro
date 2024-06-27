@@ -66,10 +66,7 @@ appId: com.casadosaber.digital
     when:
       visible: MATERIAL DE APOIO
     commands:
-      - tapOn: MATERIAL DE APOIO
-      - assertVisible: COMPARTILHAR
-      - assertVisible: BAIXAR
-      - back
+      - assertVisible: MATERIAL DE APOIO
 #  validar que a aula baixada tem a tag de não estar consumindo dados
 - tapOn: 
 - repeat:

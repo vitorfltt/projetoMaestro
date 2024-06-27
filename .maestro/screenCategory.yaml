@@ -50,9 +50,9 @@ appId: com.casadosaber.digital
       notVisible: Cursos
     commands:
       - scroll
-- tapOn:
-    point: 21%,96%
-- back
+# - tapOn:
+#     point: 21%,96%
+# - back
 - back
 - assertVisible: Busque pelo nome
 - tapOn: Busque pelo nome
