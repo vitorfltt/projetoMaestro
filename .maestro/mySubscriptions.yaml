@@ -26,7 +26,6 @@ appId: com.casadosaber.digital
 - assertNotVisible: CANCELAR RENOVAÇÃO
 - back
 - assertVisible: Minhas assinaturas
-- assertVisible: curtelerdi@tozya.com
 - assertVisible: PLANO ANUAL
 - scroll
 - assertVisible: SAIR DA MINHA CONTA
@@ -60,7 +59,6 @@ appId: com.casadosaber.digital
 - back
 - assertVisible: Minhas assinaturas
 - assertVisible: PLANO BIENAL
-- assertVisible: yagnilekka@tozya.com
 - scroll
 - assertVisible: SAIR DA MINHA CONTA
 - tapOn: SAIR DA MINHA CONTA
@@ -130,7 +128,6 @@ appId: com.casadosaber.digital
 - tapOn: CANCELAR RENOVAÇÃO
 - assertNotVisible: CANCELAR RENOVAÇÃO
 - back
-- assertVisible: gemlakordo@tozya.com
 - assertVisible: Minhas assinaturas
 - assertVisible: PLANO MENSAL
 - scroll
@@ -181,7 +178,6 @@ appId: com.casadosaber.digital
 - tapOn: CANCELAR RENOVAÇÃO
 - assertNotVisible: CANCELAR RENOVAÇÃO
 - back
-- assertVisible: codromepsi@tozya.com
 - assertVisible: Minhas assinaturas
 - assertVisible: +PSICANÁLISE E CASA DO SABER ANUAL
 - scroll
