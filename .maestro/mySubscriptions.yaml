@@ -1,15 +1,7 @@
 appId: com.casadosaber.digital
 ---
 # plano anual
-- runFlow:
-    when:
-      visible: ENTRAR
-    file: subflows/login.yaml
-- repeat:
-    while:
-      notVisible: Início
-    commands:
-      - back
+- runFlow: subflows/login.yaml
 - tapOn: Minha conta
 - scroll
 - assertVisible: Minhas assinaturas

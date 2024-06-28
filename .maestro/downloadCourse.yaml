@@ -2,11 +2,6 @@ appId: com.casadosaber.digital
 ---
 - runFlow: subflows/login.yaml
 # acessando no menu a tela de categorias
-- repeat:
-    while:
-      notVisible: Categorias
-    commands:
-      - back
 - assertVisible: Categorias
 - tapOn: Categorias
 # acessar e validar a categoria de downloads

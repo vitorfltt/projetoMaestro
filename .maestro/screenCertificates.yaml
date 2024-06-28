@@ -1,11 +1,6 @@
 appId: com.casadosaber.digital
 ---
 - runFlow: subflows/login.yaml
-- repeat:
-    while:
-      notVisible: Certificados
-    commands:
-      - back
 - assertVisible: Certificados
 - tapOn: Certificados
 - assertVisible: Meus certificados

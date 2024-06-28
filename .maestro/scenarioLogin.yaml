@@ -3,7 +3,6 @@ env:
     USERNAME: curtelerdi@tozya.com
     PASSWORD: casa1234
 ---
-- clearState
 - launchApp
 - runFlow:
     when:
@@ -12,8 +11,12 @@ env:
     commands:
         - tapOn: 
             id: "com.android.permissioncontroller:id/permission_allow_button"
-- tapOn:
-    id: main-screen-login-button
+- runFlow:
+    when: 
+        visible: "ENTRAR"
+    commands:
+        - tapOn:
+            id: main-screen-login-button
 - assertVisible: "E-mail"
 - tapOn: "ENTRAR COM SENHA"
 - assertVisible: "É necessário informar o seu e-mail"

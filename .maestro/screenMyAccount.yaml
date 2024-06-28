@@ -1,11 +1,6 @@
 appId: com.casadosaber.digital
 ---
 - runFlow: subflows/login.yaml
-- repeat:
-    while:
-      notVisible: Início
-    commands:
-      - back
 - tapOn: Minha conta
 - assertVisible: "Programa de Indicações "
 - tapOn: INDIQUE AGORA

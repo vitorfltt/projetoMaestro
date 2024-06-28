@@ -1,11 +1,6 @@
 appId: com.casadosaber.digital
 ---
 - runFlow: subflows/login.yaml
-- repeat:
-    while:
-      notVisible: Categorias
-    commands:
-      - back
 - assertVisible: Categorias
 - tapOn: Categorias
 - assertVisible: MINHA LISTA
