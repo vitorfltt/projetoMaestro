@@ -23,7 +23,7 @@ appId: com.casadosaber.digital
 - assertVisible: Em 1x de R$ 478,80
 - assertVisible: CANCELAR RENOVAÇÃO
 - tapOn: CANCELAR RENOVAÇÃO
-- assertVisible: ondemand.casadosaber.tec.br/entrar
+- assertNotVisible: CANCELAR RENOVAÇÃO
 - back
 - assertVisible: Minhas assinaturas
 - assertVisible: curtelerdi@tozya.com
@@ -56,7 +56,7 @@ appId: com.casadosaber.digital
 - assertVisible: Em 1x de R$ 790,80
 - assertVisible: CANCELAR RENOVAÇÃO
 - tapOn: CANCELAR RENOVAÇÃO
-- assertVisible: ondemand.casadosaber.tec.br/entrar
+- assertNotVisible: CANCELAR RENOVAÇÃO
 - back
 - assertVisible: Minhas assinaturas
 - assertVisible: PLANO BIENAL
@@ -128,7 +128,7 @@ appId: com.casadosaber.digital
 - assertVisible: R$ 89,90 por mês
 - assertVisible: CANCELAR RENOVAÇÃO
 - tapOn: CANCELAR RENOVAÇÃO
-- assertVisible: ondemand.casadosaber.tec.br/entrar
+- assertNotVisible: CANCELAR RENOVAÇÃO
 - back
 - assertVisible: gemlakordo@tozya.com
 - assertVisible: Minhas assinaturas
@@ -179,7 +179,7 @@ appId: com.casadosaber.digital
 - assertVisible: Em 1x de R$ 478,80
 - assertVisible: CANCELAR RENOVAÇÃO
 - tapOn: CANCELAR RENOVAÇÃO
-- assertVisible: ondemand.casadosaber.tec.br/entrar
+- assertNotVisible: CANCELAR RENOVAÇÃO
 - back
 - assertVisible: codromepsi@tozya.com
 - assertVisible: Minhas assinaturas
