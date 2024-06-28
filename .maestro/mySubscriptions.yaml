@@ -3,7 +3,11 @@ appId: com.casadosaber.digital
 # plano anual
 - runFlow: subflows/login.yaml
 - tapOn: Minha conta
-- scroll
+- repeat:
+    while:
+      notVisible: "Enviar certificados por e-mail ao concluir um curso."
+    commands:
+      - scroll
 - assertVisible: Minhas assinaturas
 - assertVisible: PLANO ANUAL
 - assertVisible: "Próxima cobrança:"
